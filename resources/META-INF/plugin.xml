@@ -39,6 +39,12 @@
     <action id="com.teleopti.wfm.developer.tools.GruntDist" class="GruntDist" text="grunt dist" description="grunt dist" icon="GruntDist.png">
       <add-to-group group-id="NavBarToolBar" anchor="last"/>
     </action>
+    <action id="com.teleopti.wfm.developer.tools.GruntDevTest" class="GruntDevTest" text="grunt devTest" description="grunt devTest" icon="GruntDevTest.png">
+      <add-to-group group-id="NavBarToolBar" anchor="last"/>
+    </action>
+    <action id="com.teleopti.wfm.developer.tools.GruntRtaTest" class="GruntRtaTest" text="grunt rtaTest" description="grunt rtaTest" icon="GruntRtaTest.png">
+      <add-to-group group-id="NavBarToolBar" anchor="last"/>
+    </action>
     <action id="com.teleopti.wfm.developer.tools.CommandLine" class="CommandLine" text="...Web\WFM command line" description="...Web\WFM command line" icon="CommandLine.png">
       <add-to-group group-id="NavBarToolBar" anchor="last"/>
     </action>
