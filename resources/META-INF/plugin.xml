@@ -1,0 +1,47 @@
+<idea-plugin>
+  <id>com.teleopti.wfm.developer.tools</id>
+  <name>Teleopti Wfm Developer Tools</name>
+  <version>0.0.3</version>
+  <vendor email="fubu@teleopti.com" url="http://www.teleopti.com">Teleopti</vendor>
+
+  <description><![CDATA[
+      Stuff and cats.<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+
+    ]]></change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="171.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <action id="com.teleopti.wfm.developer.tools.FixMyConfigFlow" class="FixMyConfigFlow" text="FixMyConfigFlow" description="FixMyConfigFlow" icon="FixMyConfigFlow.png">
+      <add-to-group group-id="NavBarToolBar" anchor="last"/>
+    </action>
+    <action id="com.teleopti.wfm.developer.tools.InfraTestConfig" class="InfraTestConfig" text="InfraTestConfig" description="InfraTestConfig" icon="InfraTestConfig.png">
+      <add-to-group group-id="NavBarToolBar" anchor="last"/>
+    </action>
+    <action id="com.teleopti.wfm.developer.tools.GruntNova" class="GruntNova" text="grunt nova" description="grunt nova" icon="GruntNova.png">
+      <add-to-group group-id="NavBarToolBar" anchor="last"/>
+    </action>
+    <action id="com.teleopti.wfm.developer.tools.GruntDist" class="GruntDist" text="grunt dist" description="grunt dist" icon="GruntDist.png">
+      <add-to-group group-id="NavBarToolBar" anchor="last"/>
+    </action>
+    <action id="com.teleopti.wfm.developer.tools.CommandLine" class="CommandLine" text="...Web\WFM command line" description="...Web\WFM command line" icon="CommandLine.png">
+      <add-to-group group-id="NavBarToolBar" anchor="last"/>
+    </action>
+  </actions>
+
+</idea-plugin>
