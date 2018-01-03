@@ -76,6 +76,14 @@
                 icon="/CommandLine.png">
             <add-to-group group-id="NavBarToolBar" anchor="last"/>
         </action>
+        <action
+                id="com.teleopti.wfm.developer.tools.actions.SuperFlow"
+                class="com.teleopti.wfm.developer.tools.actions.SuperFlow"
+                text="Super Flow"
+                description="Super Flow"
+                icon="/SuperFlow.png">
+            <add-to-group group-id="NavBarToolBar" anchor="last"/>
+        </action>
     </actions>
 
 </idea-plugin>

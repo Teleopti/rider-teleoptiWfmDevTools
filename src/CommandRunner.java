@@ -29,7 +29,7 @@ public class CommandRunner {
                     "start"
             };
             builder.command((String[])ArrayUtils.addAll(cmdStart, command));
-            //System.out.println(builder.command().toString());
+            System.out.println(builder.command().toString());
             Process p = builder.start();
             p.waitFor();
             //BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
