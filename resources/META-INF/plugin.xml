@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.teleopti.wfm.developer.tools</id>
     <name>Teleopti Wfm Developer Tools</name>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <vendor email="fubu@teleopti.com" url="http://www.teleopti.com">Teleopti</vendor>
 
     <description><![CDATA[
