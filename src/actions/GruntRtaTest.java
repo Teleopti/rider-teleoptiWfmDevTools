@@ -8,7 +8,7 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class GruntRtaTest extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
-        CommandRunner.Run(e,
+        CommandRunner.StartInCommandWindow(e,
                 PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\WFM"),
                 PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\.node\\grunt.cmd"),
                 "rtaTest"

@@ -8,18 +8,10 @@ import java.io.IOException;
 
 public class CommandRunner {
 
-    public static void Run(AnActionEvent event, String directory, String... command) {
+    public static void StartInCommandWindow(AnActionEvent event, String directory, String... command) {
         File directoryF = new File(directory);
         File fileF = new File(command[0]);
         command[0] = fileF.toString();
-//
-//        System.out.println(directory);
-//        System.out.println(command);
-//        System.out.println(directoryF.toString());
-//        System.out.println(directoryF.exists());
-//        System.out.println(fileF.toString());
-//        System.out.println(fileF.exists());
-        //Project project = event.getData(PlatformDataKeys.PROJECT);
         try {
             ProcessBuilder builder = new ProcessBuilder();
             builder.directory(directoryF);
@@ -29,15 +21,8 @@ public class CommandRunner {
                     "start"
             };
             builder.command((String[])ArrayUtils.addAll(cmdStart, command));
-            System.out.println(builder.command().toString());
             Process p = builder.start();
             p.waitFor();
-            //BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            //String line;
-            //while ((line = input.readLine()) != null) {
-            //    System.out.println(line);
-            //}
-            //Messages.showMessageDialog(project, "Done! Did it work? I dunno...", "Done", Messages.getInformationIcon());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {

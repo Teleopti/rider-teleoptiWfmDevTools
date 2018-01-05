@@ -8,7 +8,7 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class FixMyConfigFlow extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
-        CommandRunner.Run(e,
+        CommandRunner.StartInCommandWindow(e,
                 PathMaker.InRepo(".debug-Setup"),
                 PathMaker.InRepo(".debug-Setup\\FixMyConfigFlow.bat")
         );

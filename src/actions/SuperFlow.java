@@ -2,16 +2,17 @@ package com.teleopti.wfm.developer.tools.actions;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.extensions.PluginId;
-import com.sun.webkit.plugin.PluginManager;
 import com.teleopti.wfm.developer.tools.CommandRunner;
 import com.teleopti.wfm.developer.tools.PathMaker;
-
-import java.nio.file.Path;
+import com.teleopti.wfm.developer.tools.ResourceExtractor;
 
 public class SuperFlow extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
-        CommandRunner.Run(e, PathMaker.InRepo(""), PathMaker.InActions("SuperFlow.bat"));
+        ResourceExtractor.Extract("SuperFlow.bat", PathMaker.InTemp("SuperFlow.bat"));
+        CommandRunner.StartInCommandWindow(e,
+                PathMaker.InRepo(""),
+                PathMaker.InTemp("SuperFlow.bat")
+        );
     }
 }
