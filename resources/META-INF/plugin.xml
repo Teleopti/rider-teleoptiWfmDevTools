@@ -26,64 +26,68 @@
     </extensions>
 
     <actions>
-        <action
-                id="com.teleopti.wfm.developer.tools.actions.FixMyConfigFlow"
-                class="com.teleopti.wfm.developer.tools.actions.FixMyConfigFlow"
-                text="FixMyConfigFlow"
-                description="FixMyConfigFlow"
-                icon="/FixMyConfigFlow.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
-        <action id="com.teleopti.wfm.developer.tools.actions.InfraTestConfig"
-                class="com.teleopti.wfm.developer.tools.actions.InfraTestConfig"
-                text="InfraTestConfig"
-                description="InfraTestConfig"
-                icon="/InfraTestConfig.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
-        <action id="com.teleopti.wfm.developer.tools.actions.GruntNova"
-                class="com.teleopti.wfm.developer.tools.actions.GruntNova"
-                text="grunt nova"
-                description="grunt nova"
-                icon="/GruntNova.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
-        <action id="com.teleopti.wfm.developer.tools.actions.GruntDist"
-                class="com.teleopti.wfm.developer.tools.actions.GruntDist"
-                text="grunt dist"
-                description="grunt dist"
-                icon="/GruntDist.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
-        <action id="com.teleopti.wfm.developer.tools.actions.GruntDevTest"
-                class="com.teleopti.wfm.developer.tools.actions.GruntDevTest"
-                text="grunt devTest"
-                description="grunt devTest"
-                icon="/GruntDevTest.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
-        <action id="com.teleopti.wfm.developer.tools.actions.GruntRtaTest"
-                class="com.teleopti.wfm.developer.tools.actions.GruntRtaTest"
-                text="grunt rtaTest"
-                description="grunt rtaTest"
-                icon="/GruntRtaTest.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
-        <action id="com.teleopti.wfm.developer.tools.actions.CommandLine"
-                class="com.teleopti.wfm.developer.tools.actions.CommandLine"
-                text="...Web\WFM command line"
-                description="...Web\WFM command line"
-                icon="/CommandLine.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
-        <action
-                id="com.teleopti.wfm.developer.tools.actions.SuperFlow"
-                class="com.teleopti.wfm.developer.tools.actions.SuperFlow"
-                text="Super Flow"
-                description="Super Flow"
-                icon="/SuperFlow.png">
-            <add-to-group group-id="NavBarToolBar" anchor="last"/>
-        </action>
+
+        <group id="com.teleopti.wfm.developer.tools.actions.TeleoptiMenu" text="Teleopti" description="Teleopti Wfm Developer Tools">
+
+            <action
+                    id="com.teleopti.wfm.developer.tools.actions.SuperFlow"
+                    class="com.teleopti.wfm.developer.tools.actions.SuperFlow"
+                    text="Super Flow"
+                    description="Super Flow"
+                    icon="/SuperFlow.png">
+                <add-to-group group-id="NavBarToolBar" anchor="last"/>
+            </action>
+
+            <separator/>
+
+            <action
+                    id="com.teleopti.wfm.developer.tools.actions.FixMyConfigFlow"
+                    class="com.teleopti.wfm.developer.tools.actions.FixMyConfigFlow"
+                    text="FixMyConfigFlow"
+                    description="FixMyConfigFlow"
+                    icon="/FixMyConfigFlow.png">
+            </action>
+            <action id="com.teleopti.wfm.developer.tools.actions.InfraTestConfig"
+                    class="com.teleopti.wfm.developer.tools.actions.InfraTestConfig"
+                    text="InfraTestConfig"
+                    description="InfraTestConfig"
+                    icon="/InfraTestConfig.png">
+            </action>
+            <action id="com.teleopti.wfm.developer.tools.actions.GruntNova"
+                    class="com.teleopti.wfm.developer.tools.actions.GruntNova"
+                    text="grunt nova"
+                    description="grunt nova"
+                    icon="/GruntNova.png">
+            </action>
+            <action id="com.teleopti.wfm.developer.tools.actions.GruntDist"
+                    class="com.teleopti.wfm.developer.tools.actions.GruntDist"
+                    text="grunt dist"
+                    description="grunt dist"
+                    icon="/GruntDist.png">
+            </action>
+            <action id="com.teleopti.wfm.developer.tools.actions.GruntDevTest"
+                    class="com.teleopti.wfm.developer.tools.actions.GruntDevTest"
+                    text="grunt devTest"
+                    description="grunt devTest"
+                    icon="/GruntDevTest.png">
+            </action>
+            <action id="com.teleopti.wfm.developer.tools.actions.GruntRtaTest"
+                    class="com.teleopti.wfm.developer.tools.actions.GruntRtaTest"
+                    text="grunt rtaTest"
+                    description="grunt rtaTest"
+                    icon="/GruntRtaTest.png">
+            </action>
+            <action id="com.teleopti.wfm.developer.tools.actions.CommandLine"
+                    class="com.teleopti.wfm.developer.tools.actions.CommandLine"
+                    text="...Web\WFM command line"
+                    description="...Web\WFM command line"
+                    icon="/CommandLine.png">
+            </action>
+
+            <add-to-group group-id="MainMenu" relative-to-action="HelpMenu" anchor="before"/>
+        </group>
+
+
     </actions>
 
 </idea-plugin>
