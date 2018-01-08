@@ -9,18 +9,24 @@ import java.io.IOException;
 public class CommandRunner {
 
     public static void StartInCommandWindow(AnActionEvent event, String directory, String... command) {
-        File directoryF = new File(directory);
-        File fileF = new File(command[0]);
-        command[0] = fileF.toString();
+        command[0] = "\""  + new File(command[0]).toString() + "\"";
         try {
             ProcessBuilder builder = new ProcessBuilder();
-            builder.directory(directoryF);
+            builder.directory(new File(directory));
             String[] cmdStart = {
                     PathMaker.InSystem32("cmd.exe"),
                     "/c",
-                    "start"
+                    "start",
+                    "\"\""
             };
             builder.command((String[])ArrayUtils.addAll(cmdStart, command));
+
+//            for (String x: builder.command()) {
+//                System.out.print(x);
+//                System.out.print(" ");
+//            }
+//            System.out.println();
+
             Process p = builder.start();
             p.waitFor();
         } catch (InterruptedException e) {

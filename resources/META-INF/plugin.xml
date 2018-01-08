@@ -41,6 +41,13 @@
             <separator/>
 
             <action
+                    id="com.teleopti.wfm.developer.tools.actions.RestoreToLocal"
+                    class="com.teleopti.wfm.developer.tools.actions.RestoreToLocal"
+                    text="Restore to local"
+                    description="Restore to local"
+                    icon="/RestoreToLocal.png">
+            </action>
+            <action
                     id="com.teleopti.wfm.developer.tools.actions.FixMyConfigFlow"
                     class="com.teleopti.wfm.developer.tools.actions.FixMyConfigFlow"
                     text="FixMyConfigFlow"
