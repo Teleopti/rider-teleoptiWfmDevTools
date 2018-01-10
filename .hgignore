@@ -1,4 +1,5 @@
 .hg*
 .idea/workspace.xml
 out
-.jar
+#.jar
+/*.zip
