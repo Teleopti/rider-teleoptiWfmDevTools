@@ -25,21 +25,16 @@
         <!-- Add your extensions here -->
     </extensions>
 
+    <application-components>
+        <!-- Add your application components here -->
+        <component>
+            <implementation-class>PluginRegistration</implementation-class>
+        </component>
+    </application-components>
+
     <actions>
 
         <group id="com.teleopti.wfm.developer.tools.actions.TeleoptiMenu" text="Teleopti" description="Teleopti Wfm Developer Tools">
-
-            <action
-                    id="com.teleopti.wfm.developer.tools.actions.SuperFlow"
-                    class="com.teleopti.wfm.developer.tools.actions.SuperFlow"
-                    text="Super Flow"
-                    description="Super Flow"
-                    icon="/SuperFlow.png">
-                <add-to-group group-id="NavBarToolBar" anchor="last"/>
-            </action>
-
-            <separator/>
-
             <action
                     id="com.teleopti.wfm.developer.tools.actions.RestoreToLocal"
                     class="com.teleopti.wfm.developer.tools.actions.RestoreToLocal"
