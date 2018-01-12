@@ -57,6 +57,10 @@ public class PluginRegistration implements ApplicationComponent {
         actionManager.registerAction("Etl", etl);
         teleoptiMenu.add(etl);
 
+        EnsureRecurringJobs ensureRecurringJobs = new EnsureRecurringJobs();
+        actionManager.registerAction("EnsureRecurringJobs", ensureRecurringJobs);
+        teleoptiMenu.add(ensureRecurringJobs);
+
         CommandLine commandLine = new CommandLine();
         actionManager.registerAction("CommandLine", commandLine);
         teleoptiMenu.add(commandLine);
