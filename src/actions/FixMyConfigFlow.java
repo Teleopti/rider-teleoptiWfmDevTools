@@ -9,7 +9,12 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class FixMyConfigFlow extends AnAction {
 
     public FixMyConfigFlow() {
-        super("FixMyConfigFlow", "FixMyConfigFlow",  IconLoader.getIcon("/FixMyConfigFlow.png"));
+        super("FixMyConfigFlow", null,  IconLoader.getIcon("/FixMyConfigFlow.png"));
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo(".debug-Setup\\FixMyConfigFlow.bat"));
     }
 
     @Override

@@ -9,7 +9,12 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class GruntRtaTest extends AnAction {
 
     public GruntRtaTest() {
-        super("GruntRtaTest", "GruntRtaTest",  IconLoader.getIcon("/GruntRtaTest.png"));
+        super("grunt rtaTest", null,  IconLoader.getIcon("/GruntRtaTest.png"));
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\.node\\grunt.cmd") + " rtaTest");
     }
 
     @Override

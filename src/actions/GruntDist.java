@@ -9,7 +9,12 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class GruntDist extends AnAction {
 
     public GruntDist() {
-        super("GruntDist", "GruntDist",  IconLoader.getIcon("/GruntDist.png"));
+        super("grunt dist", null,  IconLoader.getIcon("/GruntDist.png"));
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\.node\\grunt.cmd") + " dist");
     }
 
     @Override

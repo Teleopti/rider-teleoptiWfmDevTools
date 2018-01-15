@@ -10,7 +10,12 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class RestoreToLocal extends AnAction {
 
     public RestoreToLocal() {
-        super("Restore to local", "Restore to local", IconLoader.getIcon("/RestoreToLocal.png"));
+        super("Restore to local", null, IconLoader.getIcon("/RestoreToLocal.png"));
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo(".debug-Setup\\Restore to Local.bat"));
     }
 
     @Override

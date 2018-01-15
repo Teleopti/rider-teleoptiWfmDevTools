@@ -11,7 +11,12 @@ import com.teleopti.wfm.developer.tools.ResourceExtractor;
 public class Etl extends AnAction {
 
     public Etl() {
-        super("Etl", "Etl", null);
+        super("Etl", null, null);
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo("Teleopti.Analytics.Etl.ServiceConsoleHost\\bin\\Debug\\Teleopti.Analytics.Etl.ServiceConsoleHost.exe"));
     }
 
     @Override

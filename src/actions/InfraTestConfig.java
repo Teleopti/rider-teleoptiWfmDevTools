@@ -9,7 +9,12 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class InfraTestConfig extends AnAction {
 
     public InfraTestConfig() {
-        super("InfraTestConfig", "InfraTestConfig",  IconLoader.getIcon("/InfraTestConfig.png"));
+        super("InfraTestConfig", null,  IconLoader.getIcon("/InfraTestConfig.png"));
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo(".debug-Setup\\InfraTestConfig.bat"));
     }
 
     @Override

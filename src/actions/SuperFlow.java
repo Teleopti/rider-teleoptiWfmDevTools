@@ -8,7 +8,12 @@ import com.teleopti.wfm.developer.tools.*;
 public class SuperFlow extends AnAction {
 
     public SuperFlow() {
-        super("Super Flow", "Super Flow", IconLoader.getIcon("/SuperFlow.png"));
+        super("Super Flow", null, IconLoader.getIcon("/SuperFlow.png"));
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription("Stuff and cats!");
     }
 
     @Override

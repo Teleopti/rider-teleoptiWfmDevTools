@@ -9,7 +9,12 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class GruntNova extends AnAction {
 
     public GruntNova() {
-        super("GruntNova", "GruntNova",  IconLoader.getIcon("/GruntNova.png"));
+        super("grunt nova", null,  IconLoader.getIcon("/GruntNova.png"));
+    }
+
+    @Override
+    public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\.node\\grunt.cmd") + " nova");
     }
 
     @Override

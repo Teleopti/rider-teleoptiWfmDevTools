@@ -9,11 +9,12 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class EnsureRecurringJobs extends AnAction {
 
     public EnsureRecurringJobs() {
-        super("EnsureRecurringJobs", "EnsureRecurringJobs", null);
+        super("EnsureRecurringJobs", null, null);
     }
 
     @Override
     public void update(AnActionEvent event) {
+        event.getPresentation().setDescription(PathMaker.InRepo("Teleopti.Analytics.Etl.ServiceConsoleHost\\bin\\Debug\\Teleopti.Analytics.Etl.ServiceConsoleHost.exe") + " /EnsureRecurringJobs");
         event.getPresentation().setEnabled(new OptionsReader().Read().EtlEnsureRecurringJobs);
     }
 
