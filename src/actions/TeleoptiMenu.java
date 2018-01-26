@@ -11,6 +11,7 @@ public class TeleoptiMenu extends DefaultActionGroup {
 
     @Override
     public void update(AnActionEvent event) {
+        event.getPresentation().setEnabled(true);
         event.getPresentation().setText("Teleopti");
     }
 }
