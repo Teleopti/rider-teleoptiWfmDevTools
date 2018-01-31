@@ -16,8 +16,10 @@ public class OptionsReader {
                 mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
                 return mapper.readValue(file, Options.class);
             }
-        } catch (IOException e1) {
-            e1.printStackTrace();
+        } catch (NoClassDefFoundError e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return new Options();
     }
