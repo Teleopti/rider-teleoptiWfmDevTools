@@ -13,6 +13,8 @@ public class SuperFlow extends AnAction {
 
     @Override
     public void update(AnActionEvent event) {
+        if (!event.getPresentation().isEnabled())
+            event.getPresentation().setEnabled(true);
         event.getPresentation().setDescription("Stuff and cats!");
     }
 

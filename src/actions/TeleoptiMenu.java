@@ -5,13 +5,14 @@ import com.intellij.openapi.actionSystem.DefaultActionGroup;
 
 public class TeleoptiMenu extends DefaultActionGroup {
 
-    public TeleoptiMenu(){
-        super("TeleoptiMenu", true );
+    public TeleoptiMenu() {
+        super("TeleoptiMenu", true);
     }
 
     @Override
     public void update(AnActionEvent event) {
-        event.getPresentation().setEnabled(true);
+        if (!event.getPresentation().isEnabled())
+            event.getPresentation().setEnabled(true);
         event.getPresentation().setText("Teleopti");
     }
 }
