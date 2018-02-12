@@ -27,14 +27,16 @@ public class SuperFlow extends AnAction {
                 CommandRunner.StartInCommandWindow(e,
                         PathMaker.InRepo(""),
                         PathMaker.InTemp("SuperFlow.bat"),
-                        "/flow",
+                        PathMaker.InRepo(""),
+                        ".com.teleopti.wfm.developer.tools",
                         "/EnsureRecurringJobs"
                 );
             } else {
                 CommandRunner.StartInCommandWindow(e,
                         PathMaker.InRepo(""),
                         PathMaker.InTemp("SuperFlow.bat"),
-                        "/flow"
+                        PathMaker.InRepo(""),
+                        ".com.teleopti.wfm.developer.tools"
                 );
             }
         } else {
