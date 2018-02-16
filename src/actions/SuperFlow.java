@@ -22,28 +22,13 @@ public class SuperFlow extends AnAction {
     public void actionPerformed(AnActionEvent e) {
         ResourceExtractor.Extract("SuperFlow.bat", PathMaker.InTemp("SuperFlow.bat"));
         Options options = new OptionsReader().Read();
-        if (options.RestoreToLocalFlow) {
-            if (options.EtlEnsureRecurringJobsWithRetries) {
-                CommandRunner.StartInCommandWindow(e,
-                        PathMaker.InRepo(""),
-                        PathMaker.InTemp("SuperFlow.bat"),
-                        PathMaker.InRepo(""),
-                        ".com.teleopti.wfm.developer.tools",
-                        "/EnsureRecurringJobs"
-                );
-            } else {
-                CommandRunner.StartInCommandWindow(e,
-                        PathMaker.InRepo(""),
-                        PathMaker.InTemp("SuperFlow.bat"),
-                        PathMaker.InRepo(""),
-                        ".com.teleopti.wfm.developer.tools"
-                );
-            }
-        } else {
-            CommandRunner.StartInCommandWindow(e,
-                    PathMaker.InRepo(""),
-                    PathMaker.InTemp("SuperFlow.bat")
-            );
-        }
+        CommandRunner.StartInCommandWindow(e,
+                PathMaker.InRepo(""),
+                PathMaker.InTemp("SuperFlow.bat"),
+                PathMaker.InRepo(""),
+                ".com.teleopti.wfm.developer.tools",
+                Boolean.toString(options.EtlEnsureRecurringJobsWithRetries),
+                Boolean.toString(options.NpmRunRtaTest)
+        );
     }
 }
