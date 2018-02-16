@@ -15,6 +15,9 @@ public class PluginRegistration implements ApplicationComponent {
     public void initComponent() {
         ActionManager actionManager = ActionManager.getInstance();
 
+        if (actionManager.getAction("TeleoptiMenu") != null)
+            return;
+
         DefaultActionGroup mainMenu = (DefaultActionGroup) actionManager.getAction("MainMenu");
         DefaultActionGroup navigationBarToolBar = (DefaultActionGroup) actionManager.getAction("NavBarToolBar");
 
