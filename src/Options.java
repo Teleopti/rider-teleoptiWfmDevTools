@@ -7,4 +7,5 @@ public class Options{
     public boolean RestoreToLocalFlow = false;
     public boolean EtlEnsureRecurringJobs = false;
     public boolean EtlEnsureRecurringJobsWithRetries = false;
+    public boolean NpmRunRtaTest = false;
 }

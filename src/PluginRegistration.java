@@ -53,6 +53,14 @@ public class PluginRegistration implements ApplicationComponent {
         actionManager.registerAction("GruntRtaTest", gruntRtaTest);
         teleoptiMenu.add(gruntRtaTest);
 
+        NpmDevTest npmDevTest = new NpmDevTest();
+        actionManager.registerAction("NpmDevTest", npmDevTest);
+        teleoptiMenu.add(npmDevTest);
+
+        NpmRtaTest npmRtaTest = new NpmRtaTest();
+        actionManager.registerAction("NpmRtaTest", npmRtaTest);
+        teleoptiMenu.add(npmRtaTest);
+
         Etl etl = new Etl();
         actionManager.registerAction("Etl", etl);
         teleoptiMenu.add(etl);
