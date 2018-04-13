@@ -20,6 +20,9 @@ public class SuperFlow extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
+        ResourceExtractor.Extract("SuperFlow.wav", PathMaker.InTemp("SuperFlow.wav"));
+        new SoundPlayer().Play(PathMaker.InTemp("SuperFlow.wav"));
+
         Options options = new OptionsReader().Read();
 
         if (options.ToolsFlowWithoutSQLCMD){
