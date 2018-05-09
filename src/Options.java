@@ -9,4 +9,6 @@ public class Options{
     public boolean EtlEnsureRecurringJobsWithRetries = false;
     public boolean NpmRunRtaTest = false;
     public boolean ToolsFlowWithoutSQLCMD = false;
+    public boolean ToolsFlowWithFixMyConfig = false;
+    public boolean ToolsFlowWithInfraTestConfigWithOptionalToggleMode = false;
 }
