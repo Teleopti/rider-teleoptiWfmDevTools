@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 public class PathMaker {
 
     private static String RepoPath(){
-        String[] testPaths = {"C:\\Code\\teleopticcc\\"};
+        String[] testPaths = {"C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\"};
         Stream<String> projectPaths = Arrays.stream(ProjectManager.getInstance().getOpenProjects())
                 .map(x -> x.getBasePath());
 
