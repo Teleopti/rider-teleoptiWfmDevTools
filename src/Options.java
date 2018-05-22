@@ -11,4 +11,5 @@ public class Options{
     public boolean ToolsFlowWithoutSQLCMD = false;
     public boolean ToolsFlowWithFixMyConfig = false;
     public boolean ToolsFlowWithInfraTestConfigWithOptionalToggleMode = false;
+    public boolean Batflow = false;
 }

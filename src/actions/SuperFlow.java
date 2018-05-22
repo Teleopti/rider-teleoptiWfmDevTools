@@ -25,9 +25,19 @@ public class SuperFlow extends AnAction {
 
         Options options = new OptionsReader().Read();
 
-        if (options.ToolsFlowWithFixMyConfig && options.ToolsFlowWithInfraTestConfigWithOptionalToggleMode){
+        if (options.Batflow){
 
-            ResourceExtractor.Extract("SuperFlow.bat", PathMaker.InTemp("SuperFlow.bat"));
+            ResourceExtractor.Extract("SuperFlow.0.1.5.bat", PathMaker.InTemp("SuperFlow.bat"));
+            CommandRunner.StartInCommandWindow(e,
+                    PathMaker.InRepo(""),
+                    PathMaker.InTemp("SuperFlow.bat"),
+                    PathMaker.InRepo(""),
+                    ".com.teleopti.wfm.developer.tools"
+            );
+
+        } else if (options.ToolsFlowWithFixMyConfig && options.ToolsFlowWithInfraTestConfigWithOptionalToggleMode){
+
+            ResourceExtractor.Extract("SuperFlow.0.1.4.bat", PathMaker.InTemp("SuperFlow.bat"));
             CommandRunner.StartInCommandWindow(e,
                     PathMaker.InRepo(""),
                     PathMaker.InTemp("SuperFlow.bat"),
