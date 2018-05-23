@@ -40,6 +40,18 @@ public class PluginRegistration implements ApplicationComponent {
         actionManager.registerAction("InfraTestConfig", infraTestConfig);
         teleoptiMenu.add(infraTestConfig);
 
+        NpmStartAlpha npmStartAlpha = new NpmStartAlpha();
+        actionManager.registerAction("NpmStartAlpha", npmStartAlpha);
+        teleoptiMenu.add(npmStartAlpha);
+
+        NpmDevTest npmDevTest = new NpmDevTest();
+        actionManager.registerAction("NpmDevTest", npmDevTest);
+        teleoptiMenu.add(npmDevTest);
+
+        NpmRtaTest npmRtaTest = new NpmRtaTest();
+        actionManager.registerAction("NpmRtaTest", npmRtaTest);
+        teleoptiMenu.add(npmRtaTest);
+
         GruntNova gruntNova = new GruntNova();
         actionManager.registerAction("GruntNova", gruntNova);
         teleoptiMenu.add(gruntNova);
@@ -55,14 +67,6 @@ public class PluginRegistration implements ApplicationComponent {
         GruntRtaTest gruntRtaTest = new GruntRtaTest();
         actionManager.registerAction("GruntRtaTest", gruntRtaTest);
         teleoptiMenu.add(gruntRtaTest);
-
-        NpmDevTest npmDevTest = new NpmDevTest();
-        actionManager.registerAction("NpmDevTest", npmDevTest);
-        teleoptiMenu.add(npmDevTest);
-
-        NpmRtaTest npmRtaTest = new NpmRtaTest();
-        actionManager.registerAction("NpmRtaTest", npmRtaTest);
-        teleoptiMenu.add(npmRtaTest);
 
         Etl etl = new Etl();
         actionManager.registerAction("Etl", etl);
