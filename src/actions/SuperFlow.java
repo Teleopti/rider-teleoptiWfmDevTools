@@ -25,7 +25,7 @@ public class SuperFlow extends AnAction {
 
         Options options = new OptionsReader().Read();
 
-        if (options.Batflow){
+        if (options.BatflowThatWorks){
 
             ResourceExtractor.Extract("SuperFlow.0.1.5.bat", PathMaker.InTemp("SuperFlow.bat"));
             CommandRunner.StartInCommandWindow(e,
