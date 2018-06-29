@@ -28,6 +28,10 @@ public class PluginRegistration implements ApplicationComponent {
         actionManager.registerAction("SuperFlow", superFlow);
         navigationBarToolBar.add(superFlow, Constraints.FIRST);
 
+        BatFlow batFlow = new BatFlow();
+        actionManager.registerAction("BatFlow", batFlow);
+        navigationBarToolBar.add(batFlow, Constraints.FIRST);
+
         RestoreToLocal restoreToLocal = new RestoreToLocal();
         actionManager.registerAction("RestoreToLocal", restoreToLocal);
         teleoptiMenu.add(restoreToLocal);
