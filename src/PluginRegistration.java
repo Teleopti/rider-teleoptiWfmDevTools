@@ -44,6 +44,10 @@ public class PluginRegistration implements ApplicationComponent {
         actionManager.registerAction("InfraTestConfig", infraTestConfig);
         teleoptiMenu.add(infraTestConfig);
 
+        NpmInstall npmInstall = new NpmInstall();
+        actionManager.registerAction("NpmInstall", npmInstall);
+        teleoptiMenu.add(npmInstall);
+
         NpmStartAlpha npmStartAlpha = new NpmStartAlpha();
         actionManager.registerAction("NpmStartAlpha", npmStartAlpha);
         teleoptiMenu.add(npmStartAlpha);
