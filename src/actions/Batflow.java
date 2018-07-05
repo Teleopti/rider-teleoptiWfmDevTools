@@ -23,10 +23,12 @@ public class BatFlow extends AnAction {
         //ResourceExtractor.Extract("BatFlow.wav", PathMaker.InTemp("BatFlow.wav"));
         //new SoundPlayer().Play(PathMaker.InTemp("BatFlow.wav"));
 
+        ResourceExtractor.Extract("BatFlow.0.2.2.bat", PathMaker.InTemp("BatFlow.bat"));
         CommandRunner.StartInCommandWindow(e,
                 PathMaker.InRepo(""),
-                PathMaker.InRepo("Teleopti.Develop.Batflow\\bin\\Debug\\Teleopti.Develop.Batflow.exe"),
-                "flow"
+                PathMaker.InTemp("BatFlow.bat"),
+                PathMaker.InRepo(""),
+                ".com.teleopti.wfm.developer.tools"
         );
 
     }

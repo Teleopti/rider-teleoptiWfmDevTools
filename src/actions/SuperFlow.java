@@ -27,7 +27,7 @@ public class SuperFlow extends AnAction {
 
         if (options.NpmRunStartAlpha){
 
-            ResourceExtractor.Extract("SuperFlow.0.1.6.bat", PathMaker.InTemp("SuperFlow.bat"));
+            ResourceExtractor.Extract("SuperFlow.0.2.2.bat", PathMaker.InTemp("SuperFlow.bat"));
             CommandRunner.StartInCommandWindow(e,
                     PathMaker.InRepo(""),
                     PathMaker.InTemp("SuperFlow.bat"),
