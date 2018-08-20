@@ -3,6 +3,8 @@ import com.intellij.openapi.actionSystem.Anchor;
 import com.intellij.openapi.actionSystem.Constraints;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.components.ApplicationComponent;
+import com.teleopti.wfm.developer.tools.OptionsReader;
+import com.teleopti.wfm.developer.tools.OptionsTeleoptiMenuItem;
 import com.teleopti.wfm.developer.tools.actions.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,14 +17,11 @@ public class PluginRegistration implements ApplicationComponent {
     public void initComponent() {
         ActionManager actionManager = ActionManager.getInstance();
 
+        // already done check
         if (actionManager.getAction("TeleoptiMenu") != null)
             return;
 
-        DefaultActionGroup mainMenu = (DefaultActionGroup) actionManager.getAction("MainMenu");
         DefaultActionGroup navigationBarToolBar = (DefaultActionGroup) actionManager.getAction("NavBarToolBar");
-
-        TeleoptiMenu teleoptiMenu = new TeleoptiMenu();
-        mainMenu.add(teleoptiMenu, new Constraints(Anchor.BEFORE, "HelpMenu"));
 
         SuperFlow superFlow = new SuperFlow();
         actionManager.registerAction("SuperFlow", superFlow);
@@ -32,74 +31,9 @@ public class PluginRegistration implements ApplicationComponent {
         actionManager.registerAction("BatFlow", batFlow);
         navigationBarToolBar.add(batFlow, Constraints.FIRST);
 
-        RestoreToLocal restoreToLocal = new RestoreToLocal();
-        actionManager.registerAction("RestoreToLocal", restoreToLocal);
-        teleoptiMenu.add(restoreToLocal);
-
-        FixMyConfigFlow fixMyConfigFlow = new FixMyConfigFlow();
-        actionManager.registerAction("FixMyConfigFlow", fixMyConfigFlow);
-        teleoptiMenu.add(fixMyConfigFlow);
-
-        InfraTestConfig infraTestConfig = new InfraTestConfig();
-        actionManager.registerAction("InfraTestConfig", infraTestConfig);
-        teleoptiMenu.add(infraTestConfig);
-
-        NpmInstall npmInstall = new NpmInstall();
-        actionManager.registerAction("NpmInstall", npmInstall);
-        teleoptiMenu.add(npmInstall);
-
-        NpmStart npmStart = new NpmStart();
-        actionManager.registerAction("NpmStart", npmStart);
-        teleoptiMenu.add(npmStart);
-
-        NpmTest npmTest = new NpmTest();
-        actionManager.registerAction("NpmTest", npmTest);
-        teleoptiMenu.add(npmTest);
-
-        NpmTestRta npmTestRta = new NpmTestRta();
-        actionManager.registerAction("NpmTestRta", npmTestRta);
-        teleoptiMenu.add(npmTestRta);
-
-        NpmDevTest npmDevTest = new NpmDevTest();
-        actionManager.registerAction("NpmDevTest", npmDevTest);
-        teleoptiMenu.add(npmDevTest);
-
-        NpmRtaTest npmRtaTest = new NpmRtaTest();
-        actionManager.registerAction("NpmRtaTest", npmRtaTest);
-        teleoptiMenu.add(npmRtaTest);
-
-        NpmStartAlpha npmStartAlpha = new NpmStartAlpha();
-        actionManager.registerAction("NpmStartAlpha", npmStartAlpha);
-        teleoptiMenu.add(npmStartAlpha);
-
-        GruntNova gruntNova = new GruntNova();
-        actionManager.registerAction("GruntNova", gruntNova);
-        teleoptiMenu.add(gruntNova);
-
-        GruntDist gruntDist = new GruntDist();
-        actionManager.registerAction("GruntDist", gruntDist);
-        teleoptiMenu.add(gruntDist);
-
-        GruntDevTest gruntDevTest = new GruntDevTest();
-        actionManager.registerAction("GruntDevTest", gruntDevTest);
-        teleoptiMenu.add(gruntDevTest);
-
-        GruntRtaTest gruntRtaTest = new GruntRtaTest();
-        actionManager.registerAction("GruntRtaTest", gruntRtaTest);
-        teleoptiMenu.add(gruntRtaTest);
-
-        Etl etl = new Etl();
-        actionManager.registerAction("Etl", etl);
-        teleoptiMenu.add(etl);
-
-        EnsureRecurringJobs ensureRecurringJobs = new EnsureRecurringJobs();
-        actionManager.registerAction("EnsureRecurringJobs", ensureRecurringJobs);
-        teleoptiMenu.add(ensureRecurringJobs);
-
-        CommandLine commandLine = new CommandLine();
-        actionManager.registerAction("CommandLine", commandLine);
-        teleoptiMenu.add(commandLine);
-
+        DefaultActionGroup mainMenu = (DefaultActionGroup) actionManager.getAction("MainMenu");
+        TeleoptiMenu teleoptiMenu = new TeleoptiMenu();
+        mainMenu.add(teleoptiMenu, new Constraints(Anchor.BEFORE, "HelpMenu"));
     }
 
     public void disposeComponent() {

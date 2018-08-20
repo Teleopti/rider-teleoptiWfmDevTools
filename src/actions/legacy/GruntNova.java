@@ -1,4 +1,4 @@
-package com.teleopti.wfm.developer.tools.actions;
+package com.teleopti.wfm.developer.tools.actions.legacy;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
