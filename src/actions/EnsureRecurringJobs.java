@@ -15,7 +15,10 @@ public class EnsureRecurringJobs extends AnAction {
     @Override
     public void update(AnActionEvent event) {
         event.getPresentation().setDescription(PathMaker.InRepo("Teleopti.Analytics.Etl.ServiceConsoleHost\\bin\\Debug\\Teleopti.Analytics.Etl.ServiceConsoleHost.exe") + " /EnsureRecurringJobs");
-        event.getPresentation().setEnabled(new OptionsReader().Read().EtlEnsureRecurringJobs);
+        if (new OptionsReader().Read().EtlEnsureRecurringJobs)
+            event.getPresentation().setEnabled(true);
+        else
+            event.getPresentation().setEnabled(false);
     }
 
     @Override

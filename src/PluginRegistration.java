@@ -48,9 +48,17 @@ public class PluginRegistration implements ApplicationComponent {
         actionManager.registerAction("NpmInstall", npmInstall);
         teleoptiMenu.add(npmInstall);
 
-        NpmStartAlpha npmStartAlpha = new NpmStartAlpha();
-        actionManager.registerAction("NpmStartAlpha", npmStartAlpha);
-        teleoptiMenu.add(npmStartAlpha);
+        NpmStart npmStart = new NpmStart();
+        actionManager.registerAction("NpmStart", npmStart);
+        teleoptiMenu.add(npmStart);
+
+        NpmTest npmTest = new NpmTest();
+        actionManager.registerAction("NpmTest", npmTest);
+        teleoptiMenu.add(npmTest);
+
+        NpmTestRta npmTestRta = new NpmTestRta();
+        actionManager.registerAction("NpmTestRta", npmTestRta);
+        teleoptiMenu.add(npmTestRta);
 
         NpmDevTest npmDevTest = new NpmDevTest();
         actionManager.registerAction("NpmDevTest", npmDevTest);
@@ -59,6 +67,10 @@ public class PluginRegistration implements ApplicationComponent {
         NpmRtaTest npmRtaTest = new NpmRtaTest();
         actionManager.registerAction("NpmRtaTest", npmRtaTest);
         teleoptiMenu.add(npmRtaTest);
+
+        NpmStartAlpha npmStartAlpha = new NpmStartAlpha();
+        actionManager.registerAction("NpmStartAlpha", npmStartAlpha);
+        teleoptiMenu.add(npmStartAlpha);
 
         GruntNova gruntNova = new GruntNova();
         actionManager.registerAction("GruntNova", gruntNova);

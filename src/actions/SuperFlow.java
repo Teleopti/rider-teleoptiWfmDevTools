@@ -25,7 +25,17 @@ public class SuperFlow extends AnAction {
 
         Options options = new OptionsReader().Read();
 
-        if (options.NpmRunStartAlpha){
+        if (options.NpmStartAndFriends){
+
+            ResourceExtractor.Extract("SuperFlow.0.2.3.bat", PathMaker.InTemp("SuperFlow.bat"));
+            CommandRunner.StartInCommandWindow(e,
+                    PathMaker.InRepo(""),
+                    PathMaker.InTemp("SuperFlow.bat"),
+                    PathMaker.InRepo(""),
+                    ".com.teleopti.wfm.developer.tools"
+            );
+
+        } else if (options.NpmRunStartAlpha){
 
             ResourceExtractor.Extract("SuperFlow.0.2.2.bat", PathMaker.InTemp("SuperFlow.bat"));
             CommandRunner.StartInCommandWindow(e,

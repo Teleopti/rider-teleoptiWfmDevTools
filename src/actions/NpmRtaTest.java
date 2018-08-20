@@ -16,7 +16,10 @@ public class NpmRtaTest extends AnAction {
     @Override
     public void update(AnActionEvent event) {
         event.getPresentation().setDescription(PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\.node\\npm") + " run rtaTest");
-        event.getPresentation().setEnabled(new OptionsReader().Read().NpmRunRtaTest);
+        if (new OptionsReader().Read().NpmStartAndFriends)
+            event.getPresentation().setEnabled(false);
+        else
+            event.getPresentation().setEnabled(true);
     }
 
     @Override

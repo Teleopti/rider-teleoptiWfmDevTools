@@ -13,4 +13,5 @@ public class Options{
     public boolean ToolsFlowWithInfraTestConfigWithOptionalToggleMode = false;
     public boolean BatflowThatWorks = false;
     public boolean NpmRunStartAlpha = false;
+    public boolean NpmStartAndFriends = false;
 }
