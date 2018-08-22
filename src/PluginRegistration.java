@@ -3,9 +3,11 @@ import com.intellij.openapi.actionSystem.Anchor;
 import com.intellij.openapi.actionSystem.Constraints;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.components.ApplicationComponent;
+import com.teleopti.wfm.developer.tools.OptionsAction;
 import com.teleopti.wfm.developer.tools.OptionsReader;
-import com.teleopti.wfm.developer.tools.OptionsTeleoptiMenuItem;
 import com.teleopti.wfm.developer.tools.actions.*;
+import com.teleopti.wfm.developer.tools.actions.legacy.BatFlow;
+import com.teleopti.wfm.developer.tools.actions.legacy.SuperFlow;
 import org.jetbrains.annotations.NotNull;
 
 public class PluginRegistration implements ApplicationComponent {
@@ -23,13 +25,23 @@ public class PluginRegistration implements ApplicationComponent {
 
         DefaultActionGroup navigationBarToolBar = (DefaultActionGroup) actionManager.getAction("NavBarToolBar");
 
-        SuperFlow superFlow = new SuperFlow();
-        actionManager.registerAction("SuperFlow", superFlow);
-        navigationBarToolBar.add(superFlow, Constraints.FIRST);
+        OptionsAction[] items = new OptionsReader().Read().NavigationToolBar;
+        if (items != null && items.length > 0){
+            for (OptionsAction item: items) {
+                navigationBarToolBar.add(new PluginAction(item), Constraints.FIRST);
+            }
+        } else {
 
-        BatFlow batFlow = new BatFlow();
-        actionManager.registerAction("BatFlow", batFlow);
-        navigationBarToolBar.add(batFlow, Constraints.FIRST);
+            ActionRegistrator registrator = new ActionRegistrator();
+
+            SuperFlow superFlow = new SuperFlow();
+            registrator.RegisterAction("SuperFlow", superFlow);
+            navigationBarToolBar.add(superFlow, Constraints.FIRST);
+
+            BatFlow batFlow = new BatFlow();
+            registrator.RegisterAction("BatFlow", batFlow);
+            navigationBarToolBar.add(batFlow, Constraints.FIRST);
+        }
 
         DefaultActionGroup mainMenu = (DefaultActionGroup) actionManager.getAction("MainMenu");
         TeleoptiMenu teleoptiMenu = new TeleoptiMenu();

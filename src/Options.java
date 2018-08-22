@@ -14,6 +14,7 @@ public class Options{
     public boolean BatflowThatWorks = false;
     public boolean NpmRunStartAlpha = false;
     public boolean NpmStartAndFriends = false;
-    public OptionsTeleoptiMenuItem[] TeleoptiMenu;
+    public OptionsAction[] TeleoptiMenu;
+    public OptionsAction[] NavigationToolBar;
 }
 

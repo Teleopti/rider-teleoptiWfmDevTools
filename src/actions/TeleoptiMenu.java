@@ -2,7 +2,7 @@ package com.teleopti.wfm.developer.tools.actions;
 
 import com.intellij.openapi.actionSystem.*;
 import com.teleopti.wfm.developer.tools.OptionsReader;
-import com.teleopti.wfm.developer.tools.OptionsTeleoptiMenuItem;
+import com.teleopti.wfm.developer.tools.OptionsAction;
 import com.teleopti.wfm.developer.tools.actions.legacy.*;
 
 public class TeleoptiMenu extends DefaultActionGroup {
@@ -12,12 +12,6 @@ public class TeleoptiMenu extends DefaultActionGroup {
     }
 
     private boolean _inUpdate = false;
-
-    private void registerAction(String id, AnAction action){
-        ActionManager actionManager = ActionManager.getInstance();
-        actionManager.unregisterAction(id);
-        actionManager.registerAction(id, action);
-    }
 
     @Override
     public void update(AnActionEvent event) {
@@ -35,83 +29,83 @@ public class TeleoptiMenu extends DefaultActionGroup {
             this.remove(item);
         }
 
-        OptionsTeleoptiMenuItem[] items = new OptionsReader().Read().TeleoptiMenu;
+        ActionRegistrator registrator = new ActionRegistrator();
+
+        OptionsAction[] items = new OptionsReader().Read().TeleoptiMenu;
         if (items != null && items.length > 0){
-            for (OptionsTeleoptiMenuItem item: items) {
-                TeleoptiMenuItem menuItem = new TeleoptiMenuItem(item.Text, item.Icon, item.Directory, item.Run);
-                registerAction(item.Id, menuItem);
-                teleoptiMenu.add(menuItem);
+            for (OptionsAction item: items) {
+                teleoptiMenu.add(new PluginAction(item));
             }
         } else {
 
             RestoreToLocal restoreToLocal = new RestoreToLocal();
-            registerAction("RestoreToLocal", restoreToLocal);
+            registrator.RegisterAction("RestoreToLocal", restoreToLocal);
             teleoptiMenu.add(restoreToLocal);
 
             FixMyConfigFlow fixMyConfigFlow = new FixMyConfigFlow();
-            registerAction("FixMyConfigFlow", fixMyConfigFlow);
+            registrator.RegisterAction("FixMyConfigFlow", fixMyConfigFlow);
             teleoptiMenu.add(fixMyConfigFlow);
 
             InfraTestConfig infraTestConfig = new InfraTestConfig();
-            registerAction("InfraTestConfig", infraTestConfig);
+            registrator.RegisterAction("InfraTestConfig", infraTestConfig);
             teleoptiMenu.add(infraTestConfig);
 
             NpmInstall npmInstall = new NpmInstall();
-            registerAction("NpmInstall", npmInstall);
+            registrator.RegisterAction("NpmInstall", npmInstall);
             teleoptiMenu.add(npmInstall);
 
             NpmStart npmStart = new NpmStart();
-            registerAction("NpmStart", npmStart);
+            registrator.RegisterAction("NpmStart", npmStart);
             teleoptiMenu.add(npmStart);
 
             NpmTest npmTest = new NpmTest();
-            registerAction("NpmTest", npmTest);
+            registrator.RegisterAction("NpmTest", npmTest);
             teleoptiMenu.add(npmTest);
 
             NpmTestRta npmTestRta = new NpmTestRta();
-            registerAction("NpmTestRta", npmTestRta);
+            registrator.RegisterAction("NpmTestRta", npmTestRta);
             teleoptiMenu.add(npmTestRta);
 
             NpmDevTest npmDevTest = new NpmDevTest();
-            registerAction("NpmDevTest", npmDevTest);
+            registrator.RegisterAction("NpmDevTest", npmDevTest);
             teleoptiMenu.add(npmDevTest);
 
             NpmRtaTest npmRtaTest = new NpmRtaTest();
-            registerAction("NpmRtaTest", npmRtaTest);
+            registrator.RegisterAction("NpmRtaTest", npmRtaTest);
             teleoptiMenu.add(npmRtaTest);
 
             NpmStartAlpha npmStartAlpha = new NpmStartAlpha();
-            registerAction("NpmStartAlpha", npmStartAlpha);
+            registrator.RegisterAction("NpmStartAlpha", npmStartAlpha);
             teleoptiMenu.add(npmStartAlpha);
 
             GruntNova gruntNova = new GruntNova();
-            registerAction("GruntNova", gruntNova);
+            registrator.RegisterAction("GruntNova", gruntNova);
             teleoptiMenu.add(gruntNova);
 
             GruntDist gruntDist = new GruntDist();
-            registerAction("GruntDist", gruntDist);
+            registrator.RegisterAction("GruntDist", gruntDist);
             teleoptiMenu.add(gruntDist);
 
             GruntDevTest gruntDevTest = new GruntDevTest();
-            registerAction("GruntDevTest", gruntDevTest);
+            registrator.RegisterAction("GruntDevTest", gruntDevTest);
             teleoptiMenu.add(gruntDevTest);
 
             GruntRtaTest gruntRtaTest = new GruntRtaTest();
-            registerAction("GruntRtaTest", gruntRtaTest);
+            registrator.RegisterAction("GruntRtaTest", gruntRtaTest);
             teleoptiMenu.add(gruntRtaTest);
 
             Etl etl = new Etl();
-            registerAction("Etl", etl);
+            registrator.RegisterAction("Etl", etl);
             teleoptiMenu.add(etl);
 
             EnsureRecurringJobs ensureRecurringJobs = new EnsureRecurringJobs();
-            registerAction("EnsureRecurringJobs", ensureRecurringJobs);
+            registrator.RegisterAction("EnsureRecurringJobs", ensureRecurringJobs);
             teleoptiMenu.add(ensureRecurringJobs);
 
         }
 
         CommandLine commandLine = new CommandLine();
-        registerAction("CommandLine", commandLine);
+        registrator.RegisterAction("CommandLine", commandLine);
         teleoptiMenu.add(commandLine);
 
         _inUpdate = false;
