@@ -23,8 +23,6 @@ public class TeleoptiMenu extends DefaultActionGroup {
             presentation.setEnabled(true);
         presentation.setText("Teleopti");
 
-        TeleoptiMenu teleoptiMenu = this;
-
         for(AnAction item: this.getChildren(event)){
             this.remove(item);
         }
@@ -34,79 +32,79 @@ public class TeleoptiMenu extends DefaultActionGroup {
         OptionsAction[] items = new OptionsReader().Read().TeleoptiMenu;
         if (items != null && items.length > 0){
             for (OptionsAction item: items) {
-                teleoptiMenu.add(new PluginAction(item));
+                add(new PluginAction(item));
             }
         } else {
 
             RestoreToLocal restoreToLocal = new RestoreToLocal();
             registrator.RegisterAction("RestoreToLocal", restoreToLocal);
-            teleoptiMenu.add(restoreToLocal);
+            add(restoreToLocal);
 
             FixMyConfigFlow fixMyConfigFlow = new FixMyConfigFlow();
             registrator.RegisterAction("FixMyConfigFlow", fixMyConfigFlow);
-            teleoptiMenu.add(fixMyConfigFlow);
+            add(fixMyConfigFlow);
 
             InfraTestConfig infraTestConfig = new InfraTestConfig();
             registrator.RegisterAction("InfraTestConfig", infraTestConfig);
-            teleoptiMenu.add(infraTestConfig);
+            add(infraTestConfig);
 
             NpmInstall npmInstall = new NpmInstall();
             registrator.RegisterAction("NpmInstall", npmInstall);
-            teleoptiMenu.add(npmInstall);
+            add(npmInstall);
 
             NpmStart npmStart = new NpmStart();
             registrator.RegisterAction("NpmStart", npmStart);
-            teleoptiMenu.add(npmStart);
+            add(npmStart);
 
             NpmTest npmTest = new NpmTest();
             registrator.RegisterAction("NpmTest", npmTest);
-            teleoptiMenu.add(npmTest);
+            add(npmTest);
 
             NpmTestRta npmTestRta = new NpmTestRta();
             registrator.RegisterAction("NpmTestRta", npmTestRta);
-            teleoptiMenu.add(npmTestRta);
+            add(npmTestRta);
 
             NpmDevTest npmDevTest = new NpmDevTest();
             registrator.RegisterAction("NpmDevTest", npmDevTest);
-            teleoptiMenu.add(npmDevTest);
+            add(npmDevTest);
 
             NpmRtaTest npmRtaTest = new NpmRtaTest();
             registrator.RegisterAction("NpmRtaTest", npmRtaTest);
-            teleoptiMenu.add(npmRtaTest);
+            add(npmRtaTest);
 
             NpmStartAlpha npmStartAlpha = new NpmStartAlpha();
             registrator.RegisterAction("NpmStartAlpha", npmStartAlpha);
-            teleoptiMenu.add(npmStartAlpha);
+            add(npmStartAlpha);
 
             GruntNova gruntNova = new GruntNova();
             registrator.RegisterAction("GruntNova", gruntNova);
-            teleoptiMenu.add(gruntNova);
+            add(gruntNova);
 
             GruntDist gruntDist = new GruntDist();
             registrator.RegisterAction("GruntDist", gruntDist);
-            teleoptiMenu.add(gruntDist);
+            add(gruntDist);
 
             GruntDevTest gruntDevTest = new GruntDevTest();
             registrator.RegisterAction("GruntDevTest", gruntDevTest);
-            teleoptiMenu.add(gruntDevTest);
+            add(gruntDevTest);
 
             GruntRtaTest gruntRtaTest = new GruntRtaTest();
             registrator.RegisterAction("GruntRtaTest", gruntRtaTest);
-            teleoptiMenu.add(gruntRtaTest);
+            add(gruntRtaTest);
 
             Etl etl = new Etl();
             registrator.RegisterAction("Etl", etl);
-            teleoptiMenu.add(etl);
+            add(etl);
 
             EnsureRecurringJobs ensureRecurringJobs = new EnsureRecurringJobs();
             registrator.RegisterAction("EnsureRecurringJobs", ensureRecurringJobs);
-            teleoptiMenu.add(ensureRecurringJobs);
+            add(ensureRecurringJobs);
 
         }
 
         CommandLine commandLine = new CommandLine();
         registrator.RegisterAction("CommandLine", commandLine);
-        teleoptiMenu.add(commandLine);
+        add(commandLine);
 
         _inUpdate = false;
     }

@@ -24,24 +24,8 @@ public class PluginRegistration implements ApplicationComponent {
             return;
 
         DefaultActionGroup navigationBarToolBar = (DefaultActionGroup) actionManager.getAction("NavBarToolBar");
-
-        OptionsAction[] items = new OptionsReader().Read().NavigationToolBar;
-        if (items != null && items.length > 0){
-            for (OptionsAction item: items) {
-                navigationBarToolBar.add(new PluginAction(item), Constraints.FIRST);
-            }
-        } else {
-
-            ActionRegistrator registrator = new ActionRegistrator();
-
-            SuperFlow superFlow = new SuperFlow();
-            registrator.RegisterAction("SuperFlow", superFlow);
-            navigationBarToolBar.add(superFlow, Constraints.FIRST);
-
-            BatFlow batFlow = new BatFlow();
-            registrator.RegisterAction("BatFlow", batFlow);
-            navigationBarToolBar.add(batFlow, Constraints.FIRST);
-        }
+        FlowBar flowBar = new FlowBar();
+        navigationBarToolBar.add(flowBar, Constraints.FIRST);
 
         DefaultActionGroup mainMenu = (DefaultActionGroup) actionManager.getAction("MainMenu");
         TeleoptiMenu teleoptiMenu = new TeleoptiMenu();
