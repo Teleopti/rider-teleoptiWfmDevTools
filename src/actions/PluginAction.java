@@ -37,6 +37,13 @@ public class PluginAction extends AnAction {
         actionManager.registerAction(_id, this);
     }
 
+    public int hashCode(){
+        int h = java.util.Arrays.hashCode(_run);
+        h = 31 * h + java.util.Arrays.hashCode(_script);
+        h = 31 * h + _id.hashCode();
+        return h;
+    }
+
     @Override
     public void update(AnActionEvent event) {
         event.getPresentation().setDescription(description());

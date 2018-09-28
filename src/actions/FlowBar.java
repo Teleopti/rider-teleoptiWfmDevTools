@@ -3,8 +3,6 @@ package com.teleopti.wfm.developer.tools.actions;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
-import com.intellij.spellchecker.dictionary.Dictionary;
 import com.teleopti.wfm.developer.tools.OptionsAction;
 import com.teleopti.wfm.developer.tools.OptionsReader;
 import com.teleopti.wfm.developer.tools.actions.legacy.BatFlow;
@@ -13,45 +11,69 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 
 public class FlowBar extends ActionGroup {
-    private AnAction[] _actions;
+    private actions _actions;
+    private boolean _inUpdate = false;
 
     public FlowBar() {
-        super("FlowBar",false);
+        super("FlowBar", false);
     }
 
     @NotNull
     @Override
     public AnAction[] getChildren(@Nullable AnActionEvent anActionEvent) {
-        buildActions();
-        return _actions;
+        return _actions.actions();
     }
 
-    private void buildActions(){
-        if (_actions != null)
+    @Override
+    public void update(AnActionEvent event) {
+        if (_inUpdate)
             return;
+        _inUpdate = true;
+        updateActions();
+        _inUpdate = false;
+    }
 
-        ArrayList<AnAction> actions = new ArrayList<AnAction>();
+    private class actions {
 
-        OptionsAction[] items = new OptionsReader().Read().NavigationToolBar;
-        if (items != null && items.length > 0){
-            for (OptionsAction item: items) {
-                actions.add(new PluginAction(item));
-            }
-        } else {
-            ActionRegistrator registrator = new ActionRegistrator();
+        private AnAction[] _actions = {};
+        private int _hash;
 
-            BatFlow batFlow = new BatFlow();
-            registrator.RegisterAction("BatFlow", batFlow);
-            actions.add(batFlow);
-
-            SuperFlow superFlow = new SuperFlow();
-            registrator.RegisterAction("SuperFlow", superFlow);
-            actions.add(superFlow);
+        public void add(AnAction action, int hash) {
+            ArrayList<AnAction> a = new ArrayList<>(Arrays.asList(_actions));
+            a.add(action);
+            _actions = a.toArray(new AnAction[0]);
+            _hash = 31 * _hash + hash;
         }
 
-        _actions = actions.toArray(new AnAction[0]);
+        public int hashCode() {
+            return _hash;
+        }
+
+        public AnAction[] actions() {
+            return _actions;
+        }
+    }
+
+    private void updateActions() {
+        actions actions = new actions();
+        OptionsAction[] items = new OptionsReader().Read().NavigationToolBar;
+        if (items != null && items.length > 0) {
+            for (OptionsAction item : items) {
+                PluginAction action = new PluginAction(item);
+                actions.add(action, action.hashCode());
+            }
+        } else {
+            BatFlow batFlow = new BatFlow();
+            actions.add(batFlow, "BatFlow".hashCode());
+
+            SuperFlow superFlow = new SuperFlow();
+            actions.add(superFlow, "SuperFlow".hashCode());
+        }
+
+        if (_actions == null || _actions.hashCode() != actions.hashCode())
+            _actions = actions;
     }
 }

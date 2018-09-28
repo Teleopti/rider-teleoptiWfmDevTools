@@ -1,5 +1,6 @@
 package com.teleopti.wfm.developer.tools;
 import com.intellij.openapi.project.ProjectManager;
+
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -8,7 +9,8 @@ import java.util.stream.Stream;
 public class PathMaker {
 
     private static String RepoPath(){
-        String[] testPaths = {"C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\", "D:\\Code\\teleoptiwfm\\"};
+        String[] testPaths = {};
+        //String[] testPaths = {"C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\", "D:\\Code\\teleoptiwfm\\"};
         Stream<String> projectPaths = Arrays.stream(ProjectManager.getInstance().getOpenProjects())
                 .map(x -> x.getBasePath());
 

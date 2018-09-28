@@ -20,6 +20,8 @@ public class OptionsReader {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (java.util.NoSuchElementException e) {
+            e.printStackTrace();
         }
         return new Options();
     }
