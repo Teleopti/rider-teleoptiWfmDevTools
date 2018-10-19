@@ -95,7 +95,8 @@ public class PluginAction extends AnAction {
             return null;
         String[] run = new String[_run.length];
         System.arraycopy(_run, 0, run, 0, _run.length);
-        run[0] = PathMaker.InRepo(run[0]);
+        if (run.length > 0)
+            run[0] = PathMaker.InRepo(run[0]);
         return run;
     }
 }

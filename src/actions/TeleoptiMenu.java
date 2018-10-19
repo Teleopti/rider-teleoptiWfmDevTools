@@ -102,10 +102,6 @@ public class TeleoptiMenu extends DefaultActionGroup {
 
         }
 
-        CommandLine commandLine = new CommandLine();
-        registrator.RegisterAction("CommandLine", commandLine);
-        add(commandLine);
-
         _inUpdate = false;
     }
 
