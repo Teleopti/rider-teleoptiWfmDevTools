@@ -1,0 +1,6 @@
+.git*
+.idea/encodings.xml
+.idea/workspace.xml
+out
+#.jar
+/*.zip
