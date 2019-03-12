@@ -5,8 +5,6 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.teleopti.wfm.developer.tools.OptionsAction;
 import com.teleopti.wfm.developer.tools.OptionsReader;
-import com.teleopti.wfm.developer.tools.actions.legacy.BatFlow;
-import com.teleopti.wfm.developer.tools.actions.legacy.SuperFlow;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -60,17 +58,11 @@ public class FlowBar extends ActionGroup {
     private void updateActions() {
         actions actions = new actions();
         OptionsAction[] items = new OptionsReader().Read().NavigationToolBar;
-        if (items != null && items.length > 0) {
+        if (items != null) {
             for (OptionsAction item : items) {
                 PluginAction action = new PluginAction(item);
                 actions.add(action, action.hashCode());
             }
-        } else {
-            BatFlow batFlow = new BatFlow();
-            actions.add(batFlow, "BatFlow".hashCode());
-
-            SuperFlow superFlow = new SuperFlow();
-            actions.add(superFlow, "SuperFlow".hashCode());
         }
 
         if (_actions == null || _actions.hashCode() != actions.hashCode())

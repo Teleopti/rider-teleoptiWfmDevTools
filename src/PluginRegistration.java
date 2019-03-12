@@ -3,11 +3,7 @@ import com.intellij.openapi.actionSystem.Anchor;
 import com.intellij.openapi.actionSystem.Constraints;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.components.ApplicationComponent;
-import com.teleopti.wfm.developer.tools.OptionsAction;
-import com.teleopti.wfm.developer.tools.OptionsReader;
 import com.teleopti.wfm.developer.tools.actions.*;
-import com.teleopti.wfm.developer.tools.actions.legacy.BatFlow;
-import com.teleopti.wfm.developer.tools.actions.legacy.SuperFlow;
 import org.jetbrains.annotations.NotNull;
 
 public class PluginRegistration implements ApplicationComponent {
