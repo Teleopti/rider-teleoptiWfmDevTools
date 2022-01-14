@@ -26,8 +26,6 @@ public class TeleoptiMenu extends DefaultActionGroup {
             this.remove(item);
         }
 
-        ActionRegistrator registrator = new ActionRegistrator();
-
         OptionsAction[] items = new OptionsReader().Read().TeleoptiMenu;
         if (items != null){
             for (OptionsAction item: items) {
