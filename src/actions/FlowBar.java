@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FlowBar extends ActionGroup {
-    private actions _actions;
+    public actions _actions;
     private boolean _inUpdate = false;
 
     public FlowBar() {
@@ -37,7 +37,7 @@ public class FlowBar extends ActionGroup {
         _inUpdate = false;
     }
 
-    private class actions {
+    public class actions {
 
         private AnAction[] _actions = {};
         private int _hash;
@@ -58,7 +58,7 @@ public class FlowBar extends ActionGroup {
         }
     }
 
-    private void updateActions() {
+    public void updateActions() {
         actions actions = new actions();
         OptionsAction[] items = new OptionsReader().Read().NavigationToolBar;
         if (items != null) {

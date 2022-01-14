@@ -10,7 +10,7 @@ public class PathMaker {
 
     private static String RepoPath(){
         String[] testPaths = {};
-        //String[] testPaths = {"C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\", "D:\\Code\\teleoptiwfm\\"};
+        //String[] testPaths = {"C:\\Code\\twfm\\", "C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\", "D:\\Code\\teleoptiwfm\\"};
         Stream<String> projectPaths = Arrays.stream(ProjectManager.getInstance().getOpenProjects())
                 .map(x -> x.getBasePath());
 
