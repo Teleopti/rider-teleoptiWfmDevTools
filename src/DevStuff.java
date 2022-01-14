@@ -1,6 +1,10 @@
 package com.teleopti.wfm.developer.tools;
 
 import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.Constraints;
+import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.teleopti.wfm.developer.tools.actions.FlowBar;
 
 public class DevStuff {
 
@@ -8,6 +12,9 @@ public class DevStuff {
     //public String[] devPaths = {"C:\\Code\\twfm\\", "C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\", "D:\\Code\\teleoptiwfm\\"};
 
     public void menuExperiments(ActionManager actionManager){
+
+        //FlowBar flowBar = new FlowBar();
+        //FlowActions flowActions = new FlowActions();
 
         //String allActionIds = actionManager.getActionIdList("")
         //        .stream()
@@ -18,10 +25,18 @@ public class DevStuff {
         //        .map(a -> actionManager.getId(a))
         //        .collect(Collectors.joining("\n"));
 
-        //DefaultActionGroup ToolbarRunGroup = (DefaultActionGroup) actionManager.getAction("ToolbarRunGroup");
-        //flowBar.updateActions();
-        //AnAction action = flowBar._actions.actions()[0];
-        //ToolbarRunGroup.add(action, Constraints.LAST);
+        //DefaultActionGroup toolbarRunGroup = (DefaultActionGroup) actionManager.getAction("ToolbarRunGroup");
+        //for (AnAction action : flowActions.getActions()) {
+        //    toolbarRunGroup.add(action, Constraints.FIRST);
+        //}
+
+        //toolbarRunGroup.add(flowBar, Constraints.FIRST);
+
+        //DefaultActionGroup toolbarRunGroup = (DefaultActionGroup) actionManager.getAction("ToolbarRunGroup");
+        //for (AnAction action : flowBar.getChildActionsOrStubs()) {
+        //    toolbarRunGroup.add(action, Constraints.LAST);
+        //}
+
 
     }
 }

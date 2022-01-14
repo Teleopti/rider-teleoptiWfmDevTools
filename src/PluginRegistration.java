@@ -2,6 +2,7 @@ import com.intellij.ide.CommonActionsManager;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.teleopti.wfm.developer.tools.DevStuff;
+import com.teleopti.wfm.developer.tools.OptionsAction;
 import com.teleopti.wfm.developer.tools.actions.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,9 +25,14 @@ public class PluginRegistration implements ApplicationComponent {
 
         new DevStuff().menuExperiments(actionManager);
 
-        DefaultActionGroup navigationBarToolBar = (DefaultActionGroup) actionManager.getAction("NavBarToolBar");
         FlowBar flowBar = new FlowBar();
-        navigationBarToolBar.add(flowBar, Constraints.FIRST);
+        // Adds FlowBar to "Navigation bar" and "Toolbar classic" (Main Toolbar)
+        // Cant add to the new toolbar yet:
+        // https://blog.jetbrains.com/dotnet/2021/11/16/rider-2021-3-brand-new-main-toolbar/
+        // https://youtrack.jetbrains.com/issue/RIDER-70047
+        // https://youtrack.jetbrains.com/issue/RIDER-70122
+        DefaultActionGroup toolbarRunGroup = (DefaultActionGroup) actionManager.getAction("ToolbarRunGroup");
+        toolbarRunGroup.add(flowBar, Constraints.FIRST);
 
         DefaultActionGroup mainMenu = (DefaultActionGroup) actionManager.getAction("MainMenu");
         TeleoptiMenu teleoptiMenu = new TeleoptiMenu();
