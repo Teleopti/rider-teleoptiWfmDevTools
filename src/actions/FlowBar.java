@@ -22,6 +22,9 @@ public class FlowBar extends ActionGroup {
     @NotNull
     @Override
     public AnAction[] getChildren(@Nullable AnActionEvent anActionEvent) {
+        if (_actions == null){
+            updateActions();
+        }
         return _actions.actions();
     }
 
