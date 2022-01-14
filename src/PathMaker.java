@@ -9,12 +9,10 @@ import java.util.stream.Stream;
 public class PathMaker {
 
     private static String RepoPath(){
-        String[] testPaths = {};
-        //String[] testPaths = {"C:\\Code\\twfm\\", "C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\", "D:\\Code\\teleoptiwfm\\"};
         Stream<String> projectPaths = Arrays.stream(ProjectManager.getInstance().getOpenProjects())
                 .map(x -> x.getBasePath());
 
-        return Stream.concat(projectPaths, Arrays.stream(testPaths))
+        return Stream.concat(projectPaths, Arrays.stream(new DevStuff().devPaths))
                 .filter(x -> new File(Paths.get(x, "CruiseControl.sln").toString()).exists())
                 .findFirst().get();
     }
