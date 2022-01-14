@@ -17,7 +17,6 @@ import java.util.List;
 public class PluginAction extends AnAction {
 
     private String _id;
-    private String _sound;
     private String _description;
     private String _directory;
     private String[] _run;
@@ -26,7 +25,6 @@ public class PluginAction extends AnAction {
     public PluginAction(OptionsAction optionsAction) {
         super(optionsAction.Text, null, loadIcon(optionsAction.Icon));
         _id = optionsAction.Id;
-        _sound = optionsAction.Sound;
         _description = optionsAction.Description;
         _directory = optionsAction.Directory;
         _run = optionsAction.Run;
@@ -51,11 +49,6 @@ public class PluginAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-
-        if (_sound != null){
-            ResourceExtractor.Extract("SuperFlow.wav", PathMaker.InTemp("SuperFlow.wav"));
-            new SoundPlayer().Play(PathMaker.InTemp("SuperFlow.wav"));
-        }
 
         if (_script != null){
             String file = _id + ".bat";

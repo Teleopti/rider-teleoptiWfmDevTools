@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class OptionsAction {
     public String Id;
     public String Icon;
-    public String Sound;
     public String Text;
     public String Description;
     public String Directory;
