@@ -10,17 +10,14 @@ import com.teleopti.wfm.developer.tools.*;
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class PluginAction extends AnAction {
 
-    private String _id;
-    private String _description;
-    private String _directory;
-    private String[] _run;
-    private String[] _script;
+    private final String _id;
+    private final String _description;
+    private final String _directory;
+    private final String[] _run;
+    private final String[] _script;
 
     public PluginAction(OptionsAction optionsAction) {
         super(optionsAction.Text, null, loadIcon(optionsAction.Icon));
@@ -33,6 +30,12 @@ public class PluginAction extends AnAction {
         ActionManager actionManager = ActionManager.getInstance();
         actionManager.unregisterAction(_id);
         actionManager.registerAction(_id, this);
+    }
+
+    private static Icon loadIcon(String icon) {
+        if (icon == null)
+            return null;
+        return IconLoader.getIcon("/" + icon);
     }
 
     @Override
@@ -50,6 +53,14 @@ public class PluginAction extends AnAction {
     @Override
     public void update(AnActionEvent event) {
         event.getPresentation().setDescription(description());
+    }
+
+    private String description() {
+        String description = _description;
+        String[] run = run();
+        if (description == null && run != null)
+            description = String.join(" ", run);
+        return description;
     }
 
     @Override
@@ -72,20 +83,6 @@ public class PluginAction extends AnAction {
         if (_run != null)
             CommandRunner.StartInCommandWindow(e, PathMaker.InRepo(_directory), run());
 
-    }
-
-    private static Icon loadIcon(String icon) {
-        if (icon == null)
-            return null;
-        return IconLoader.getIcon("/" + icon);
-    }
-
-    private String description() {
-        String description = _description;
-        String[] run = run();
-        if (description == null && run != null)
-            description = String.join(" ", run);
-        return description;
     }
 
     private String[] run() {
