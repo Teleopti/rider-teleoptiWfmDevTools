@@ -13,6 +13,11 @@ public class TeleoptiMenu extends DefaultActionGroup {
     private boolean _inUpdate = false;
 
     @Override
+    public ActionUpdateThread getActionUpdateThread(){
+        return ActionUpdateThread.EDT;
+    }
+
+    @Override
     public void update(AnActionEvent event) {
         if (_inUpdate)
             return;

@@ -1,11 +1,11 @@
 package com.teleopti.wfm.developer.tools.actions;
 
 import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.util.IconLoader;
 import com.teleopti.wfm.developer.tools.*;
-import org.apache.commons.lang.ArrayUtils;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
@@ -33,6 +33,11 @@ public class PluginAction extends AnAction {
         ActionManager actionManager = ActionManager.getInstance();
         actionManager.unregisterAction(_id);
         actionManager.registerAction(_id, this);
+    }
+
+    @Override
+    public ActionUpdateThread getActionUpdateThread(){
+        return ActionUpdateThread.EDT;
     }
 
     public int hashCode(){

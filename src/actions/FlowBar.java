@@ -1,6 +1,7 @@
 package com.teleopti.wfm.developer.tools.actions;
 
 import com.intellij.openapi.actionSystem.ActionGroup;
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.teleopti.wfm.developer.tools.OptionsAction;
@@ -17,6 +18,11 @@ public class FlowBar extends ActionGroup {
 
     public FlowBar() {
         super("FlowBar", false);
+    }
+
+    @Override
+    public ActionUpdateThread getActionUpdateThread(){
+        return ActionUpdateThread.EDT;
     }
 
     @NotNull

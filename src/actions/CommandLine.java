@@ -1,5 +1,6 @@
 package com.teleopti.wfm.developer.tools.actions;
 
+import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.util.IconLoader;
@@ -10,6 +11,11 @@ public class CommandLine extends AnAction {
 
     public CommandLine() {
         super("WFM Command line", null,  IconLoader.getIcon("/CommandLine.png"));
+    }
+
+    @Override
+    public ActionUpdateThread getActionUpdateThread(){
+        return ActionUpdateThread.EDT;
     }
 
     @Override
