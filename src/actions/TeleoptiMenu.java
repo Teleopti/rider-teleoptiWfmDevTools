@@ -13,7 +13,7 @@ public class TeleoptiMenu extends DefaultActionGroup {
     private boolean _inUpdate = false;
 
     @Override
-    public ActionUpdateThread getActionUpdateThread(){
+    public ActionUpdateThread getActionUpdateThread() {
         return ActionUpdateThread.EDT;
     }
 
@@ -27,13 +27,13 @@ public class TeleoptiMenu extends DefaultActionGroup {
             presentation.setEnabled(true);
         presentation.setText("Teleopti");
 
-        for(AnAction item: this.getChildren(event)){
+        for (AnAction item : this.getChildren(event)) {
             this.remove(item);
         }
 
         OptionsAction[] items = new OptionsReader().Read().TeleoptiMenu;
-        if (items != null){
-            for (OptionsAction item: items) {
+        if (items != null) {
+            for (OptionsAction item : items) {
                 add(new PluginAction(item));
             }
         }

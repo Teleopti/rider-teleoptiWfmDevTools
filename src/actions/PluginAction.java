@@ -36,11 +36,11 @@ public class PluginAction extends AnAction {
     }
 
     @Override
-    public ActionUpdateThread getActionUpdateThread(){
+    public ActionUpdateThread getActionUpdateThread() {
         return ActionUpdateThread.EDT;
     }
 
-    public int hashCode(){
+    public int hashCode() {
         int h = java.util.Arrays.hashCode(_run);
         h = 31 * h + java.util.Arrays.hashCode(_script);
         h = 31 * h + _id.hashCode();
@@ -55,12 +55,12 @@ public class PluginAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
 
-        if (_script != null){
+        if (_script != null) {
             String file = _id + ".bat";
             try (PrintWriter out = new PrintWriter(PathMaker.InTemp(file))) {
-                for (String line: _script) {
-                    line = line.replace("%Repo%",PathMaker.InRepo("") );
-                    line = line.replace("%PluginTemp%",".com.teleopti.wfm.developer.tools" );
+                for (String line : _script) {
+                    line = line.replace("%Repo%", PathMaker.InRepo(""));
+                    line = line.replace("%PluginTemp%", ".com.teleopti.wfm.developer.tools");
                     out.println(line);
                 }
                 CommandRunner.StartInCommandWindow(e, PathMaker.InRepo(""), PathMaker.InTemp(file));
@@ -74,13 +74,13 @@ public class PluginAction extends AnAction {
 
     }
 
-    private static Icon loadIcon(String icon){
+    private static Icon loadIcon(String icon) {
         if (icon == null)
             return null;
         return IconLoader.getIcon("/" + icon);
     }
 
-    private String description(){
+    private String description() {
         String description = _description;
         String[] run = run();
         if (description == null && run != null)
@@ -88,7 +88,7 @@ public class PluginAction extends AnAction {
         return description;
     }
 
-    private String[] run(){
+    private String[] run() {
         if (_run == null)
             return null;
         String[] run = new String[_run.length];

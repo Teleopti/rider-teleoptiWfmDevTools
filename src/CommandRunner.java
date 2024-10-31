@@ -1,7 +1,6 @@
 package com.teleopti.wfm.developer.tools;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import org.apache.commons.lang.ArrayUtils;
 
 import java.io.File;
 import java.io.IOException;

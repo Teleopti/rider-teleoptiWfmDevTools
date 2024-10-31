@@ -6,8 +6,8 @@ public class ResourceExtractor {
 
     public static void Extract(String resource, String file) {
         try {
-            try(InputStream resourceStream = ResourceExtractor.class.getClassLoader().getResourceAsStream(resource)){
-                try(FileOutputStream fileStream = new FileOutputStream(new File(file))){
+            try (InputStream resourceStream = ResourceExtractor.class.getClassLoader().getResourceAsStream(resource)) {
+                try (FileOutputStream fileStream = new FileOutputStream(new File(file))) {
                     byte[] buffer = new byte[32768];
                     int length;
                     while ((length = resourceStream.read(buffer)) > 0) {

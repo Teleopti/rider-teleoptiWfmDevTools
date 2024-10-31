@@ -21,14 +21,14 @@ public class FlowBar extends ActionGroup {
     }
 
     @Override
-    public ActionUpdateThread getActionUpdateThread(){
+    public ActionUpdateThread getActionUpdateThread() {
         return ActionUpdateThread.EDT;
     }
 
     @NotNull
     @Override
     public AnAction[] getChildren(@Nullable AnActionEvent anActionEvent) {
-        if (_actions == null){
+        if (_actions == null) {
             updateActions();
         }
         return _actions.actions();

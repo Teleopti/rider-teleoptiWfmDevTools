@@ -1,4 +1,5 @@
 package com.teleopti.wfm.developer.tools;
+
 import com.intellij.openapi.project.ProjectManager;
 
 import java.io.File;
@@ -8,7 +9,7 @@ import java.util.stream.Stream;
 
 public class PathMaker {
 
-    private static String RepoPath(){
+    private static String RepoPath() {
         Stream<String> projectPaths = Arrays.stream(ProjectManager.getInstance().getOpenProjects())
                 .map(x -> x.getBasePath());
 
@@ -21,7 +22,7 @@ public class PathMaker {
         return Paths.get(RepoPath(), path).toString();
     }
 
-    public static String InTemp(String path){
+    public static String InTemp(String path) {
         new File(InRepo(".com.teleopti.wfm.developer.tools")).mkdirs();
         return InRepo(Paths.get(".com.teleopti.wfm.developer.tools", path).toString());
     }

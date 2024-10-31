@@ -10,17 +10,17 @@ import com.teleopti.wfm.developer.tools.PathMaker;
 public class CommandLine extends AnAction {
 
     public CommandLine() {
-        super("WFM Command line", null,  IconLoader.getIcon("/CommandLine.png"));
+        super("WFM Command line", null, IconLoader.getIcon("/CommandLine.png"));
     }
 
     @Override
-    public ActionUpdateThread getActionUpdateThread(){
+    public ActionUpdateThread getActionUpdateThread() {
         return ActionUpdateThread.EDT;
     }
 
     @Override
     public void update(AnActionEvent event) {
-        event.getPresentation().setDescription("cmd.exe " + PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\WFM") );
+        event.getPresentation().setDescription("cmd.exe " + PathMaker.InRepo("Teleopti.Ccc.Web\\Teleopti.Ccc.Web\\WFM"));
     }
 
     @Override
