@@ -11,7 +11,7 @@ public class DevStuff {
     public String[] devPaths = {};
     //public String[] devPaths = {"C:\\Code\\twfm\\", "C:\\Code\\teleoptiwfm\\", "C:\\Code\\teleoptiwfm.git\\", "C:\\Code\\teleopticcc\\", "D:\\Code\\teleoptiwfm\\"};
 
-    public void menuExperiments(ActionManager actionManager){
+    public void menuExperiments(ActionManager actionManager) {
 
         //FlowBar flowBar = new FlowBar();
         //FlowActions flowActions = new FlowActions();
