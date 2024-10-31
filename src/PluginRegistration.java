@@ -1,14 +1,8 @@
-import com.intellij.ide.CommonActionsManager;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.teleopti.wfm.developer.tools.DevStuff;
-import com.teleopti.wfm.developer.tools.OptionsAction;
 import com.teleopti.wfm.developer.tools.actions.*;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class PluginRegistration implements ApplicationComponent {
     @NotNull
