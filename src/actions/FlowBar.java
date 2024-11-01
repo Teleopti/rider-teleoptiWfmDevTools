@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FlowBar extends ActionGroup {
-    public actions _actions;
+    private actions _actions;
     private boolean _inUpdate = false;
 
     public FlowBar() {
@@ -21,21 +21,21 @@ public class FlowBar extends ActionGroup {
     }
 
     @Override
-    public ActionUpdateThread getActionUpdateThread() {
+    public @NotNull ActionUpdateThread getActionUpdateThread() {
         return ActionUpdateThread.EDT;
     }
 
     @NotNull
     @Override
-    public AnAction[] getChildren(@Nullable AnActionEvent anActionEvent) {
+    public AnAction @NotNull [] getChildren(@Nullable AnActionEvent anActionEvent) {
         if (_actions == null) {
             updateActions();
         }
-        return _actions.actions();
+        return _actions.actionsList();
     }
 
     @Override
-    public void update(AnActionEvent event) {
+    public void update(@NotNull AnActionEvent event) {
         if (_inUpdate)
             return;
         _inUpdate = true;
@@ -43,7 +43,7 @@ public class FlowBar extends ActionGroup {
         _inUpdate = false;
     }
 
-    public class actions {
+    private class actions {
 
         private AnAction[] _actions = {};
         private int _hash;
@@ -59,7 +59,7 @@ public class FlowBar extends ActionGroup {
             return _hash;
         }
 
-        public AnAction[] actions() {
+        public AnAction[] actionsList() {
             return _actions;
         }
     }
