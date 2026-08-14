@@ -1,16 +1,14 @@
+import com.intellij.ide.AppLifecycleListener;
 import com.intellij.openapi.actionSystem.*;
-import com.intellij.openapi.components.ApplicationComponent;
 import com.teleopti.wfm.developer.tools.DevStuff;
 import com.teleopti.wfm.developer.tools.actions.*;
 import org.jetbrains.annotations.NotNull;
 
-public class PluginRegistration implements ApplicationComponent {
-    @NotNull
-    public String getComponentName() {
-        return "com.teleopti.wfm.developer.tools";
-    }
+import java.util.List;
 
-    public void initComponent() {
+public class PluginRegistration implements AppLifecycleListener {
+    @Override
+    public void appFrameCreated(@NotNull List<String> commandLineArgs) {
         ActionManager actionManager = ActionManager.getInstance();
 
         // already done check
@@ -31,8 +29,5 @@ public class PluginRegistration implements ApplicationComponent {
         DefaultActionGroup mainMenu = (DefaultActionGroup) actionManager.getAction("MainMenu");
         TeleoptiMenu teleoptiMenu = new TeleoptiMenu();
         mainMenu.add(teleoptiMenu, new Constraints(Anchor.BEFORE, "HelpMenu"));
-    }
-
-    public void disposeComponent() {
     }
 }
