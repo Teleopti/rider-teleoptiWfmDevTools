@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <!-- Rider runs on JetBrains Runtime Java 25 (bytecode 69). Compile the plugin to Java 21
+         (bytecode 65) so the real Rider can load it. Java 26 (bytecode 70) is rejected with
+         UnsupportedClassVersionError and the plugin silently fails to load. -->
+    <bytecodeTargetLevel target="21" />
+  </component>
+</project>

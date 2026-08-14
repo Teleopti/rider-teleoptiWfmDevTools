@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.teleopti.wfm.developer.tools</id>
     <name>Teleopti Wfm Developer Tools</name>
-    <version>0.6.0</version>
+    <version>0.7.7</version>
     <vendor email="fubu@teleopti.com" url="http://www.teleopti.com">Teleopti</vendor>
 
     <description><![CDATA[
@@ -22,11 +22,10 @@
     <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <!-- Registers the menu/toolbar early (during action-system init), before Rider builds
+             its merged New UI menu. See MenuRegistrar for why this, and not a lifecycle
+             listener or declarative <actions>, is what works in the real Rider. -->
+        <actionConfigurationCustomizer implementation="com.teleopti.wfm.developer.tools.MenuRegistrar"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="PluginRegistration" topic="com.intellij.ide.AppLifecycleListener"/>
-    </applicationListeners>
 
 </idea-plugin>
