@@ -14,8 +14,30 @@ public class PathMaker {
                 .map(x -> x.getBasePath());
 
         return Stream.concat(projectPaths, Arrays.stream(new DevStuff().devPaths))
-                .filter(x -> new File(Paths.get(x, "CruiseControl.sln").toString()).exists())
+                .filter(PathMaker::isDeveloperToolsRepo)
                 .findFirst().get();
+    }
+
+    private static boolean isDeveloperToolsRepo(String path) {
+        return containsSolutionFile(path) && containsConfigFile(path);
+    }
+
+    private static boolean containsSolutionFile(String path) {
+        if (path == null) {
+            return false;
+        }
+        File[] solutions = new File(path).listFiles((dir, name) -> {
+            String lower = name.toLowerCase();
+            return lower.endsWith(".sln") || lower.endsWith(".slnx");
+        });
+        return solutions != null && solutions.length > 0;
+    }
+
+    private static boolean containsConfigFile(String path) {
+        if (path == null) {
+            return false;
+        }
+        return new File(Paths.get(path, ".com.teleopti.wfm.developer.tools.json").toString()).exists();
     }
 
     public static String InRepo(String path) {
