@@ -35,7 +35,7 @@ public class PluginAction extends AnAction {
     private static Icon loadIcon(String icon) {
         if (icon == null)
             return null;
-        return IconLoader.getIcon("/" + icon);
+        return IconLoader.getIcon("/" + icon, PluginAction.class);
     }
 
     @Override
