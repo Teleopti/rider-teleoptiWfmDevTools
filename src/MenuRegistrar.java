@@ -16,6 +16,10 @@ import com.teleopti.wfm.developer.tools.actions.TeleoptiMenu;
  * ApplicationComponent.initComponent() (also very early) and worked; the later migration to
  * AppLifecycleListener.appFrameCreated() injected too late (after Rider had already built its
  * menu) and to declarative &lt;add-to-group&gt;, neither of which render in Rider's merged menu.
+ *
+ * Uses a SyncHeavyCustomizeStrategy (the replacement for the deprecated
+ * customize(ActionManager) override since 2026.3). It still gets the ActionManager and runs
+ * synchronously during action-system init, same as before.
  */
 public class MenuRegistrar implements ActionConfigurationCustomizer {
 
@@ -23,7 +27,11 @@ public class MenuRegistrar implements ActionConfigurationCustomizer {
     private static final String FLOWBAR_ID = "com.teleopti.wfm.developer.tools.FlowBar";
 
     @Override
-    public void customize(ActionManager actionManager) {
+    public CustomizeStrategy customize() {
+        return (SyncHeavyCustomizeStrategy) MenuRegistrar::register;
+    }
+
+    private static void register(ActionManager actionManager) {
         if (actionManager.getAction(MENU_ID) == null) {
             TeleoptiMenu teleoptiMenu = new TeleoptiMenu();
             actionManager.registerAction(MENU_ID, teleoptiMenu);
